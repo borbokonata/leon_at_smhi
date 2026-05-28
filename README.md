@@ -9,20 +9,20 @@
 
 ### Model parameters
 
-- $\alpha = 1.1$: prey growth rate
-- $\beta = 0.4$: prey death rate because of predators
-- $\gamma = 0.1$: predators death rate
-- $\delta = 0.4$: predators growth rate because of preys
-- $\Delta t = 0.01$: time step
+- $\alpha = 1.0$: prey growth rate
+- $\beta = 0.1$: prey death rate because of predators
+- $\gamma = 0.75$: predators death rate
+- $\delta = 0.075$: predators growth rate because of preys
+- $\Delta t = 0.001$: time step
 
 ### Progonstic equations
 
-- $x(t+\Delta t) = x(t) + (\alpha x - \beta x y) \Delta t$
-- $y(t+\Delta t) = y(t) + (-\gamma y + \delta x y) \Delta t$
+- $x(t+\Delta t) = x(t) + (\alpha x(t) - \beta x(t) y(t)) \Delta t$
+- $y(t+\Delta t) = y(t) + (-\gamma y(t) + \delta x(t) y(t)) \Delta t$
 
 ### Task: running the model
 - Fork this repository on GitHub and clone it on your laptop.
-- Use Python to implement the Lotka-Volterra model and run it over 10000 time steps. Save the results into NumPy arrays.
+- Use Python to implement the Lotka-Volterra model and run it over 30000 time steps. Save the results into NumPy arrays.
 - Plot the results for each prognostic variable with Matplotlib.
 - Save your code and results on GitHub.
 
@@ -45,9 +45,9 @@ Source article: [Lorenz, E. N., 1963: Deterministic Nonperiodic Flow. J. Atmos. 
 
 ### Progonstic equations
 
-- $x(t+\Delta t) = x(t) + \sigma (y - x) \Delta t$
-- $y(t+\Delta t) = y(t) + (\rho x - y - x z) \Delta t$
-- $z(t+\Delta t) = z(t) + (x y - \beta z) \Delta t$
+- $x(t+\Delta t) = x(t) + \sigma (y(t) - x(t)) \Delta t$
+- $y(t+\Delta t) = y(t) + (\rho x(t) - y(t) - x(t) z(t)) \Delta t$
+- $z(t+\Delta t) = z(t) + (x(t) y(t) - \beta z(t)) \Delta t$
 
 ### Task: running the model
 - Fork this repository on GitHub and clone it on your laptop.
