@@ -4,6 +4,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+from matplotlib import cbook, cm
+from matplotlib.colors import LightSource
+
 #arr = np.array([[3, 2, 4], [5, 0, 1]])
 #print(np.sort(arr))
 
@@ -109,13 +112,13 @@ import numpy as np
 #print(newarr)
 
 
-xpoints = np.array([0, 4])
-ypoints = np.array([0, 200])
-zpoints = np.array([0, 4])
-apoints = np.array([0, 10])
+#xpoints = np.array([0, 4])
+#points = np.array([0, 200])
+#points = np.array([0, 4])
+#apoints = np.array([0, 10])
 
-plt.plot(xpoints, ypoints)
-plt.show()
+#plt.plot(xpoints, ypoints)
+#plt.show()
 
 
 

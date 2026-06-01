@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 a = 1.0
+
 b = 0.1
 c = 0.75
 d = 0.075
@@ -33,13 +34,11 @@ print(y)
 #T is vertical and represents time, x/y is horizontal and represents the population
 plt.plot(T, x, label='rabbits', linestyle = 'dotted')
 
-
 plt.plot(T, y, label='foxes', linestyle = 'solid')
 
 #labels
 plt.xlabel("time")
 plt.ylabel("population")
-plt.colorbar()
 plt.grid()
 plt.show()
 

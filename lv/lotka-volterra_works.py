@@ -14,15 +14,13 @@ y = np.zeros((n))
 x[0] = 5.0
 y[0] = 5.0
 
-x[1] = x[0] + a * x[0] * dt - b * x[0] * y[0] * dt
+x[1] = x[0] + (a * x[0] - b * x[0] * y[0]) * dt
 y[1] = y[0] + d * x[0] * y[0] * dt - c * y[0] * dt 
 
-T=[]
-T.append(0)
+T = np.linspace(0, n-1, n)
 for t in range(n - 1):
     x[t+1] = x[t] + a * x[t] * dt - b * x[t] * y[t] * dt
     y[t+1] = y[t] + d * x[t] * y[t] * dt - c * y[t] * dt
-    T.append(t)
 print(x)
 print(y)
 
