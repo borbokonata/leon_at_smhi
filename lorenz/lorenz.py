@@ -39,15 +39,71 @@ for t in range (n - 1):
 
 #make 3d
 
+x2 = np.zeros((n))           #the rate of fluid flow
+y2 = np.zeros((n))           #the temperture between the rising and falling air currentents
+z2 = np.zeros((n))          #the distortion of the vertical temperature profile from a linear one
+
+
+x2[0] = 0.000001
+y2[0] = 10
+z2[0] = 0
+
+
+T = np.linspace(0, n-1, n)
+for t in range (n - 1):
+  x2[t+1] = x2[t] + b * (y2[t] - x2[t]) * dt
+  y2[t+1] = y2[t] + (a * x2[t] - y2[t] - x2[t] * z2[t]) * dt
+  z2[t+1] = z2[t] + (x2[t] * y2[t] - c * z2[t]) * dt 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #three lines
-#plt.plot(T, x, label='the rate of fluid flow', linestyle = 'solid')
-#plt.plot(T, y, label='temperature difference betweem the rising and falling air currents', linestyle = 'solid')
-#plt.plot(T, z, label='distortion of the vertical temperature profile from a linear one', linestyle = 'solid')
+plt.plot(T, x, label='the rate of fluid flow', linestyle = 'solid')
+plt.plot(T, y, label='temperature difference betweem the rising and falling air currents', linestyle = 'solid')#plt.plot(T, z, label='distortion of the vertical temperature profile from a linear one', linestyle = 'solid')
+fix = plt.figure()
+fig, axs = plt.subplots(3)
+axs[0].plot(T, x, 'blue', label='rabbits', linestyle = 'solid', linewidth = 3)
+axs[0].plot(T, x2, 'blue', label='rabbits', linestyle = 'dotted', linewidth = 3)
+
+axs[1].plot(T, y, 'green', label='rabbits', linestyle = 'solid', linewidth = 3)
+axs[1].plot(T, y2, 'green', label='rabbits', linestyle = 'dotted', linewidth = 3)
+
+axs[2].plot(T, z, 'red',label='rabbits', linestyle = 'solid', linewidth = 3)
+axs[2].plot(T, z2, 'red',label='rabbits', linestyle = 'dotted', linewidth = 3)
+
+#artist = []
+
+
+
+#t=n
+#ax.plot(x[0:t], y[0:t], z[0:t], color = 'k', linestyle = 'solid')
+
+
+#ani = animation.ArtistAnimation(fig=fig, artists=artists, interval=1)
+
+
+plt.show()
 
 fig, axs = plt.subplots(3)
-axs[0].plot(T, x, label='rabbits', linestyle = 'solid')
+axs[0].axhline(y=0, color='gray', linestyle='-')
+axs[0].plot(T, x-x2, 'blue', label='rabbits', linestyle = 'solid')
+axs[1].axhline(y=0, color='gray', linestyle='-')
+axs[1].plot(T, y-y2, 'green', label='rabbits', linestyle = 'solid')
+axs[2].axhline(y=0, color='gray', linestyle='-')
+axs[2].plot(T, z-z2, 'red',label='rabbits', linestyle = 'solid')
 
-axs[1].plot(T, y, 'green', label='rabbits', linestyle = 'solid')
-
-axs[2].plot(T, z, 'red',label='rabbits', linestyle = 'solid')
 plt.show()

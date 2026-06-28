@@ -60,6 +60,6 @@ t=n
 ax.plot(x[0:t], y[0:t], z[0:t], color = 'k', linestyle = 'solid')
 
 
-#ani = animation.ArtistAnimation(fig=fig, artists=artists, interval=1)
-plt.show()
-#ani.save("lorenz.mp4")
+ani = animation.ArtistAnimation(fig=fig, artists=artists, interval=1)
+#plt.show()
+ani.save("lorenz.mp4")

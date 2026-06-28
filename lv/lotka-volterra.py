@@ -10,7 +10,7 @@ c = 0.75
 d = 0.075
 dt = 0.001
 #t is time
-n = 10000
+n = 30000
 
 x = np.zeros((n))  #rabbbit population
 y = np.zeros((n))  #fox population
